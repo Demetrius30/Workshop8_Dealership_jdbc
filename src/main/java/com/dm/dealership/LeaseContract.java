@@ -1,2 +1,4 @@
-package com.dm.dealership;public class LeaseContract {
+package com.dm.dealership;
+
+public class LeaseContract {
 }
