@@ -1,17 +1,21 @@
 package com.dm.dealership;
 
 public class Vehicle {
-    private int vin;
+    private int vinNum;
     private int year;
     private String make;
     private String model;
     private String vehicleType;
     private String color;
     private int odometer;
-    private double price;
+    private int price;
+    
+    public Vehicle(){
+        
+    };
 
-    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
-        this.vin = vin;
+    public Vehicle(int vinNum, int year, String make, String model, String vehicleType, String color, int odometer, int price) {
+        this.vinNum = vinNum;
         this.year = year;
         this.make = make;
         this.model = model;
@@ -21,12 +25,12 @@ public class Vehicle {
         this.price = price;
     }
 
-    public int getVin() {
-        return vin;
+    public int getVinNum() {
+        return vinNum;
     }
 
-    public void setVin(int vin) {
-        this.vin = vin;
+    public void setVinNum(int vinNum) {
+        this.vinNum = vinNum;
     }
 
     public int getYear() {
@@ -77,18 +81,18 @@ public class Vehicle {
         this.odometer = odometer;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
     @Override
     public String toString() {
         return "Vehicle{" +
-                "vin=" + vin +
+                "vinNum=" + vinNum +
                 ", year=" + year +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +

@@ -11,13 +11,17 @@ public class Main {
         String username = args[0];
         String password = args[1];
 
-        basicDataSource.setUrl("jdbc:mysql://localhost:3306/dealership?reconnect=true");
+        basicDataSource.setUrl("jdbc:mysql://localhost:3306/dealership_main?reconnect=true");
         basicDataSource.setUsername(username);
         basicDataSource.setPassword(password);
 
         VehicleDataManager vehicleDataManager = new VehicleDataManager(basicDataSource);
 
-        List<Vehicle> vehicles = vehicleDataManager.getByPrice();
+
+
+
+
+        List<Vehicle> vehicles = vehicleDataManager.getByPrice(10000, 20000);
         System.out.println(vehicles);
 
     }

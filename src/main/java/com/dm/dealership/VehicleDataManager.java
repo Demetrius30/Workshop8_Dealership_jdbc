@@ -15,29 +15,35 @@ public class VehicleDataManager {
     public VehicleDataManager(BasicDataSource basicDataSource){
         this.basicDataSource = basicDataSource;}
 
-    public List<Vehicle> getByPrice(){
+    public List<Vehicle> getByPrice(int minRange, int maxRange){
         List<Vehicle> vehiclesPrice = new ArrayList<>();
 
-        String query = "Select * From vehicles Where price;";
+        String query = "Select * From vehicles Where price Between ? And ?;";
 
         try(
                 Connection connection = this.basicDataSource.getConnection();
                 PreparedStatement preparedStatement = connection.prepareStatement(query);
-                ResultSet resultSet = preparedStatement.executeQuery();
         ){
-            while(resultSet.next()){
-                int vin = resultSet.getInt("vin");
-                int year = resultSet.getInt("year");
-                String make = resultSet.getString("make");
-                String model = resultSet.getString("model");
-                String vehicleType = resultSet.getString("vehicleType");
-                String color = resultSet.getString("color");
-                int odometer = resultSet.getInt("odometer");
-                double price = resultSet.getDouble("price");
+            preparedStatement.setInt(1, minRange);
+            preparedStatement.setInt(2, maxRange);
+            try(
+                    ResultSet resultSet = preparedStatement.executeQuery();
+            ) {
 
-                Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+                while (resultSet.next()) {
+                    int vinNum = resultSet.getInt("vinNum");
+                    int year = resultSet.getInt("year");
+                    String make = resultSet.getString("make");
+                    String model = resultSet.getString("model");
+                    String vehicleType = resultSet.getString("vehicleType");
+                    String color = resultSet.getString("color");
+                    int odometer = resultSet.getInt("odometer");
+                    int price = resultSet.getInt("price");
 
-                vehiclesPrice.add(vehicle);
+                    Vehicle vehicle = new Vehicle(vinNum, year, make, model, vehicleType, color, odometer, price);
+
+                    vehiclesPrice.add(vehicle);
+                }
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -45,6 +51,17 @@ public class VehicleDataManager {
 
         return vehiclesPrice;
     }
+
+
+
+
+//    public List<Vehicle> getMakeNdModel(){
+//        List<Vehicle> vehicleMakeNdModel = new ArrayList<>();
+//
+//        String query = "Select * From Vehicles Where make, model"
+//
+//    }
+
 
 
 }
