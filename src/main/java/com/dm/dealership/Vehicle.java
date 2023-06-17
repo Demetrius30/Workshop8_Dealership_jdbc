@@ -1,5 +1,12 @@
 package com.dm.dealership;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Vehicle {
     private int vinNum;
     private int year;
@@ -9,6 +16,13 @@ public class Vehicle {
     private String color;
     private int odometer;
     private int price;
+
+
+
+
+
+
+
     
     public Vehicle(){
         

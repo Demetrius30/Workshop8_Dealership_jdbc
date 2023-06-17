@@ -33,6 +33,19 @@ public class Main {
 
         /////////////////////
 
+//        List<Vehicle> vehicles = vehicleDataManager.getColor("red");
+//        System.out.println(vehicles);
+
+        //////////////////////
+
+//        List<Vehicle> vehicles =  vehicleDataManager.getByMileage(1000, 200000);
+//        System.out.println(vehicles);
+
+        ////////////////////////
+
+        List<Vehicle> vehicles = vehicleDataManager.getType("sedan");
+        System.out.println(vehicles);
+
 
     }
 }

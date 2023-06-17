@@ -89,8 +89,6 @@ public class VehicleDataManager {
         }
         return vehicleMakeNdModel;
     }
-
-
     public List<Vehicle> getYear(int minYear, int maxYear) {
         List<Vehicle> vehicleYear = new ArrayList<>();
 
@@ -126,4 +124,106 @@ public class VehicleDataManager {
 
         return vehicleYear;
     }
+
+    public List<Vehicle> getColor(String colorResult){
+        List<Vehicle> vehicleColor = new ArrayList<>();
+
+        String query = "Select * From vehicles Where color=?;";
+
+        try(
+                Connection connection = this.basicDataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)
+        ) {
+            preparedStatement.setString(1, colorResult);
+            try (
+                    ResultSet resultSet = preparedStatement.executeQuery();
+            ) {
+                while (resultSet.next()) {
+                    int vinNum = resultSet.getInt("vinNum");
+                    int year = resultSet.getInt("year");
+                    String make = resultSet.getString("make");
+                    String model = resultSet.getString("model");
+                    String vehicleType = resultSet.getString("vehicleType");
+                    String color = resultSet.getString("color");
+                    int odometer = resultSet.getInt("odometer");
+                    int price = resultSet.getInt("price");
+
+                    Vehicle vehicle = new Vehicle(vinNum, year, make, model, vehicleType, color, odometer, price);
+
+                    vehicleColor.add(vehicle);
+                }
+            }
+         }catch (SQLException e){
+            e.printStackTrace();
+            }
+            return vehicleColor;
+        }
+
+    public List<Vehicle> getByMileage (int minMileage, int maxMileage){
+        List<Vehicle> vehiclesMileage = new ArrayList<>();
+
+        String query = "Select * From vehicles Where odometer Between ? And ?;";
+
+        try(
+                Connection connection = this.basicDataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ){
+            preparedStatement.setInt(1, minMileage);
+            preparedStatement.setInt(2, maxMileage);
+
+            try(
+                    ResultSet resultSet = preparedStatement.executeQuery();
+            ){
+                while(resultSet.next()){
+                    int vinNum = resultSet.getInt("VinNum");
+                    int year = resultSet.getInt("year");
+                    String make = resultSet.getString("make");
+                    String model = resultSet.getString("model");
+                    String vehicleType = resultSet.getString("vehicleType");
+                    String color = resultSet.getString("color");
+                    int odometer = resultSet.getInt("odometer");
+                    int price = resultSet.getInt("price");
+
+                    Vehicle vehicle = new Vehicle(vinNum, year, make, model, vehicleType, color, odometer, price);
+
+                    vehiclesMileage.add(vehicle);
+                }
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return vehiclesMileage;
+    }
+
+    public List<Vehicle> getType(String typeResult) { //////////////////// not working fully
+        List<Vehicle> typeForVehicle = new ArrayList<>();
+
+        String query = "Select * From vehicles Where vehicleType=?;";
+
+        try (
+                Connection connection = this.basicDataSource.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+        ){
+                preparedStatement.setString(1, typeResult);
+            try (
+                 ResultSet resultSet = preparedStatement.executeQuery();
+            ) {
+                int vinNum = resultSet.getInt("vinNum");
+                int year = resultSet.getInt("year");
+                String make = resultSet.getString("make");
+                String model = resultSet.getString("model");
+                String vehicleType = resultSet.getString("vehicleType");
+                String color = resultSet.getString("color");
+                int odometer = resultSet.getInt("odometer");
+                int price = resultSet.getInt("price");
+
+                Vehicle vehicle = new Vehicle(vinNum, year, make, model, vehicleType, color, odometer, price);
+
+                typeForVehicle.add(vehicle);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }return  typeForVehicle;
+    }
+
 }
