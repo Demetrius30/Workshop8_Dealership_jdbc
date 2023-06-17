@@ -7,7 +7,6 @@
     <list default="true" id="eb37ddff-d163-482f-807e-30cd7dfc4181" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dm/dealership/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dm/dealership/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dm/dealership/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dm/dealership/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dm/dealership/VehicleDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dm/dealership/VehicleDataManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -18,11 +18,21 @@ public class Main {
         VehicleDataManager vehicleDataManager = new VehicleDataManager(basicDataSource);
 
 
+//        List<Vehicle> vehicles = vehicleDataManager.getByPrice(10000, 20000);
+//        System.out.println(vehicles);
 
+        //////////////////////
 
+//        List<Vehicle> vehicles = vehicleDataManager.getMakeNdModel("ford", "Explorer" );
+//        System.out.println(vehicles);
 
-        List<Vehicle> vehicles = vehicleDataManager.getByPrice(10000, 20000);
-        System.out.println(vehicles);
+        //////////////////////
+
+//        List<Vehicle> vehicles = vehicleDataManager.getYear(1990, 2015);
+//        System.out.println(vehicles);
+
+        /////////////////////
+
 
     }
 }
