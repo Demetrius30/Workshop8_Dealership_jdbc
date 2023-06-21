@@ -16,7 +16,7 @@ public class Vehicle {
     private String color;
     private int odometer;
     private int price;
-
+    private boolean sold;
 
 
 
@@ -24,11 +24,9 @@ public class Vehicle {
 
 
     
-    public Vehicle(){
-        
-    };
+    public Vehicle(){};
 
-    public Vehicle(int vinNum, int year, String make, String model, String vehicleType, String color, int odometer, int price) {
+    public Vehicle(int vinNum, int year, String make, String model, String vehicleType, String color, int odometer, int price, boolean sold) {
         this.vinNum = vinNum;
         this.year = year;
         this.make = make;
@@ -37,6 +35,7 @@ public class Vehicle {
         this.color = color;
         this.odometer = odometer;
         this.price = price;
+        this.sold = sold;
     }
 
     public int getVinNum() {
@@ -103,6 +102,14 @@ public class Vehicle {
         this.price = price;
     }
 
+    public boolean isSold() {
+        return sold;
+    }
+
+    public void setSold(boolean sold) {
+        this.sold = sold;
+    }
+
     @Override
     public String toString() {
         return "Vehicle{" +
@@ -114,6 +121,7 @@ public class Vehicle {
                 ", color='" + color + '\'' +
                 ", odometer=" + odometer +
                 ", price=" + price +
+                ", sold=" + sold +
                 '}';
     }
 }

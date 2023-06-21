@@ -43,8 +43,17 @@ public class Main {
 
         ////////////////////////
 
-        List<Vehicle> vehicles = vehicleDataManager.getType("sedan");
-        System.out.println(vehicles);
+//        List<Vehicle> vehicles = vehicleDataManager.getType("suv");
+//        System.out.println(vehicles);
+
+        //////////////////////////
+
+//        Vehicle vehicle = new Vehicle(1234567, 2015, "benz", "amg", "sedan", "black", 1010, 80000, false);
+//        vehicleDataManager.create(vehicle);
+
+        ///////////////////////////
+
+        vehicleDataManager.delete(12345);
 
 
     }
