@@ -15,7 +15,11 @@ public class Main {
         basicDataSource.setUsername(username);
         basicDataSource.setPassword(password);
 
-        VehicleDataManager vehicleDataManager = new VehicleDataManager(basicDataSource);
+        VehicleDao vehicleDataManager = new VehicleDao(basicDataSource);
+
+        DealershipDao dealershipDao = new DealershipDao(basicDataSource);
+
+        SalesDao salesDao = new SalesDao(basicDataSource);
 
 
 //        List<Vehicle> vehicles = vehicleDataManager.getByPrice(10000, 20000);
@@ -48,13 +52,22 @@ public class Main {
 
         //////////////////////////
 
-//        Vehicle vehicle = new Vehicle(1234567, 2015, "benz", "amg", "sedan", "black", 1010, 80000, false);
-//        vehicleDataManager.create(vehicle);
+//        Vehicle vehicle = new Vehicle(12345678, 2015, "benz", "amg", "sedan", "black", 1010, 80000, false);
+//        dealershipDao.create(vehicle);
 
         ///////////////////////////
 
-        vehicleDataManager.delete(12345);
+//        dealershipDao.delete(12345678);
 
 
+//        SalesContract salesContract = new SalesContract(10112, 23434, 2323, true);
+//        salesDao.create(salesContract); // not fully working
     }
+
+        ///////////////////////////
+
+
+
+
+
 }
